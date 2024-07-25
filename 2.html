@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-y: scroll; /* 允许垂直滚动 */
+        }
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* .content-container {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+        } */
+        .content-image1 {
+            width: 200px; /* 设置元素的宽度 */
+            height: 200px; /* 设置元素的高度 */
+            margin-right: 20px; /* 设置元素右侧的外边距 */
+            border-radius: 50%; /* 设置元素的边框半径，使其呈现圆形 */
+            object-fit: cover; /* 保持图片完整 */
+          float: right; /* 图片右对齐 */
+        }
+
+        .content-image2 {
+            width: 200px;
+            height: 200px;
+            margin-right: 20px;
+            border-radius: 50%;
+            object-fit: cover; /* 保持图片完整 */
+           object-position: center; /* 图片居中 */
+        }
+        .content-text {
+            flex-grow: 1;
+        }
+        .content-container {
+            flex-grow: 2; /* 设置元素的弹性增长系数为1，使其在父容器中有剩余空间时扩展 */
+            /* background-image: url('images/middle.jpg'); 设置背景图 */
+            background-color: rgb(247, 223, 223); /* 设置背景颜色 */
+            background-size: cover; /* 使背景图覆盖整个容器 */
+            background-position: center; /* 使背景图居中 */
+            padding: 20px; /* 添加内边距，防止内容紧贴边缘 */
+        }
+        .scrollable-content {
+            height: 100vh; /* 设置高度为视口高度 */
+            overflow-y: auto; /* 允许内容超出时出现滚动条 */
+        }
+    </style>
+</head>
+<body>
+    <div class="scrollable-content" >
+        <img src="images/header.png" alt="顶部图片" class="header-image">
+        <!-- <img src="images/middle.jpg" alt="内容图片" class="middle-image"> -->
+
+      <div class="content-container">
+    <img src="images/xzq1.jpg" alt="内容图片" class="content-image1">
+    <div class="content-text">
+        <h1>音乐不止</h1>
+        <p>这里是一些关于我的介绍文字。你可以在这里添加更多的内容，比如你的兴趣爱好、工作经历等。bbbbbbbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvbdsfvddffvgdfv汉语是我国使用人数最多的语言，也是世界上作为第一语言使用人数最多的语言。我国除汉族使用汉语外，回族、满族等也基本使用或转用汉语，其他民族都有自己的语言，许多民族都不同程度地转用或兼用汉语。
+            　　现代汉语有标准语和方言之分。普通话是现代汉语的标准语，以北京语音为标准音、以北方话为基础方言、以典范的现代白话文著作为语法规范。《中华人民共和国宪法》规定：“国家推广全国通用的普通话。”2000年10月31日颁布的《中华人民共和国国家通用语言文字法》确定普通话为国家通用语言
+        </p>
+        <div class="music-player">
+            <ul class="song-list">
+                <li data-src="music/爱你.mp3" >爱你</li>
+                <li data-src="music/暮色回响.mp3">暮色回响</li>
+                <li data-src="path/to/song3.mp3">歌曲3</li>
+            </ul>
+            <audio id="audio-player" controls>
+                <source src="" type="audio/mpeg">
+                您的浏览器不支持 audio 元素。
+            </audio>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const songList = document.querySelector('.song-list');
+    const audioPlayer = document.getElementById('audio-player');
+
+    songList.addEventListener('click', function(event) {
+        if (event.target.tagName === 'LI') {
+            const songSrc = event.target.getAttribute('data-src');
+            audioPlayer.src = songSrc;
+            audioPlayer.play();
+        }
+    });
+});
+</script>
+
+<style>
+.music-player {
+    /* 音乐播放器的样式，顶部外边距为20像素 */
+    margin-top: 20px;
+ 
+}
+ 
+.song-list {
+    /* 歌曲列表的样式，无列表样式，内边距为0 */
+    list-style-type: none;
+    padding: 5px;
+    width: 300px;
+  
+   
+}
+ 
+.song-list li {
+    /* 歌曲列表项的样式，鼠标悬停时变为指针，内边距为5像素，背景颜色为#a4cfe0，底部外边距为5像素 */
+    cursor: pointer;
+    padding: 5px;
+    background-color: #f8c0cc;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+ 
+.song-list li:hover {
+    /* 歌曲列表项悬停时的样式，背景颜色变为#e0e0e0 */
+    background-color: #e0e0e0;
+}
+</style>
+
+       
+        <div class="content-container">
+            <h1 align="right">更多内容</h1>
+            <img src="images/xzq2.jpg" alt="内容图片2" class="content-image2">
+            <div class="content-text">
+               
+                <p>这里是更多的内容，用于测试页面的滚动效果。</p>
+            </div>
+        </div>
+        <!-- 添加更多内容以测试滚动效果 -->
+        <div class="content-container">
+            <img src="content-image3.jpg" alt="内容图片3" class="content-image">
+            <div class="content-text">
+                <h1>更多内容</h1>
+                <p>这里是更多的内容，用于测试页面的滚动效果。</p>
+            </div>
+
+        </div>
+        <div class="content-container">
+            <img src="content-image3.jpg" alt="内容图片3" class="content-image">
+            <div class="content-text">
+                <h1>更多内容</h1>
+                <p>这里是更多的内容，用于测试页面的滚动效果。</p>
+            </div>
+
+            <div class="content-container">
+                <img src="content-image3.jpg" alt="内容图片3" class="content-image">
+                <div class="content-text">
+                    <h1>更多内容</h1>
+                    <p>这里是更多的内容，用于测试页面的滚动效果。</p>
+                 </div>
+
+            <div class="content-container">
+                    <img src="content-image3.jpg" alt="内容图片3" class="content-image">
+                    <div class="content-text">
+                        <h1>更多内容</h1>
+                        <p>这里是更多的内容，用于测试页面的滚动效果。</p>
+                    </div>
+                    
+                    <div class="content-container">
+                        <img src="content-image3.jpg" alt="内容图片3" class="content-image">
+                        <div class="content-text">
+                            <h1>更多内容</h1>
+                      <p>这里是更多的内容，用于测试页面的滚动效果。</p>
+                    </div>
+</body>
+</html>
